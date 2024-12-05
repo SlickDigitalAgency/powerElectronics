@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply antialiased;
+  background: #010005;
+  min-height: 100vh;
+}
+
+/* Section background gradients */
+.hero-gradient {
+  background: linear-gradient(135deg, rgba(1, 0, 5, 0.9) 0%, rgba(37, 81, 102, 0.8) 100%);
+  position: relative;
+}
+
+.hero-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(37, 81, 102, 0.3) 0%, rgba(1, 0, 5, 0.6) 100%);
+  pointer-events: none;
+}
+
+.about-gradient {
+  background: linear-gradient(160deg, #02121a 0%, #0c2c3e 50%, #02121a 100%);
+  position: relative;
+}
+
+.about-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 70% 30%, rgba(37, 81, 102, 0.4) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.products-gradient {
+  background: linear-gradient(140deg, #010005 0%, #1a3a4f 50%, #010005 100%);
+  position: relative;
+}
+
+.products-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(37, 81, 102, 0.3) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.benefits-gradient {
+  background: linear-gradient(120deg, #02121a 0%, #153447 50%, #02121a 100%);
+  position: relative;
+}
+
+.benefits-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(37, 81, 102, 0.4) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.success-gradient {
+  background: linear-gradient(150deg, #010005 0%, #1e3a5f 50%, #010005 100%);
+  position: relative;
+}
+
+.success-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 80% 40%, rgba(37, 81, 102, 0.3) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.contact-gradient {
+  background: linear-gradient(130deg, #02121a 0%, #0c2c3e 50%, #02121a 100%);
+  position: relative;
+}
+
+.contact-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at 60% 60%, rgba(37, 81, 102, 0.4) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Rest of your existing styles */
+.animate-in {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-in-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.animate-in-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.animate-in-delay-3 {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.animate-in .stagger-children > * {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.stagger-children > *:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.stagger-children > *:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.stagger-children > *:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.stagger-children > *:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+input,
+textarea {
+  @apply bg-white/10 border-gray-600 text-gray-100 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500;
+}
+
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.input-focus-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.input-focus-effect::after {
+  content: "";
+  position: absolute;
+  left: -100%;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #059669;
+  transition: left 0.3s ease;
+}
+
+.input-focus-effect:focus-within::after {
+  left: 0;
+}
